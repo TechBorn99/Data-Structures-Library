@@ -317,13 +317,6 @@ namespace Data_Structures_Library
             return true;
         }
 
-        /*
-        public bool Sort()
-        {
-
-        }
-        */
-
         /// <summary>
         /// Prints the values of all the elements from the list in the console. Time complexity: O(n).
         /// </summary>
