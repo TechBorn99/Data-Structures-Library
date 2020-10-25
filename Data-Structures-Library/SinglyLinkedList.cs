@@ -4,7 +4,7 @@ namespace Data_Structures_Library
 {
     /// <summary>
     /// Class that represents non-generic Singly Linked List data structure.
-    /// The class contains various methods for adding, deleting, swaping, sorting, reversing, printing elements etc.
+    /// The class contains various methods for adding, deleting, swaping, reversing, printing elements etc.
     /// </summary>
     public class SinglyLinkedList
     {
@@ -69,7 +69,7 @@ namespace Data_Structures_Library
         /// Time complexity: O(1).
         /// </summary>
         /// <param name="value">Value that the new element will be initialized with.</param>
-        public void Add(object value)
+        public void Push(object value)
         {
             // Initialize a new element with the specified value and pointer to the previously first element in the list
             head = new Node(value, head);
@@ -87,7 +87,7 @@ namespace Data_Structures_Library
             // If the list is empty, add the new element at the beginning of the list
             if(counter == 0)
             {
-                Add(value);
+                Push(value);
                 return;
             }
 
@@ -148,7 +148,7 @@ namespace Data_Structures_Library
                 temp = temp.next;
             }
 
-            // Return false if the eleemtn with the specified value is not found
+            // Return false if the element with the specified value is not found
             return false;
         }
 
@@ -265,12 +265,12 @@ namespace Data_Structures_Library
             // Empty the current list from the end, and add all the elements to the beginning of the temporary list
             while(length != 0)
             {
-                tempList.Add(Delete(counter - 1));
+                tempList.Push(Delete(counter - 1));
             }
             // Empty the temporary list from the end, and add all it's elements to the beginning of the current list
             while(tempList.length != 0)
             {
-                this.Add(tempList.Pop());
+                this.Push(tempList.Pop());
             }
             // Return true if the above is done (the list is reversed)
             return true;
