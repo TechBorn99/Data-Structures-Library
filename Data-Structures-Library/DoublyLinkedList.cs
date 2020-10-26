@@ -179,26 +179,13 @@ namespace Data_Structures_Library
             }
         }
 
-        /*
-        public void Append(object value)
-        {
-            
-        }
-        */
-
-        /*
-        public object Pop()
-        {
-            
-        }
-        */
-
         /// <summary>
         /// Method that deleted the element od the list that has the same value as the one that is specified.
         /// Time complexity: O(n).
         /// </summary>
         /// <param name="value">Value of the object that is to be deleted.</param>
-        /// <returns></returns>
+        /// <returns>Value of the deleted element, if found; null if the element is not found and throws an 
+        /// InvalidOperationException if an attempt to delete from an empty list is detected.</returns>
         public object Delete(object value)
         {
             // If list is empty, throw an exception
@@ -226,10 +213,10 @@ namespace Data_Structures_Library
             while (temp.next != null)
             {
                 // If the value of the current element is the same as the specified value
-                if (Equals(temp.next.value, value))
+                if(Equals(temp.next.value, value))
                 {
-                    // Move the pointer
-                    toBeDeleted = temp.value;
+                    // Move the pointers
+                    toBeDeleted = temp.next.value;
                     temp.next = temp.next.next;
                     temp.prev = temp;
                     // Decrease the number of elements
@@ -244,6 +231,20 @@ namespace Data_Structures_Library
             // If the specified element is not found
             return null;
         }
+
+        /*
+        public void Append(object value)
+        {
+            
+        }
+        */
+
+        /*
+        public object Pop()
+        {
+            
+        }
+        */
 
         /*
         public bool Reverse()
