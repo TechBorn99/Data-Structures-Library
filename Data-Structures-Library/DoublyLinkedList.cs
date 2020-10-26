@@ -193,12 +193,57 @@ namespace Data_Structures_Library
         }
         */
 
-        /*
-        public object Delete(int index)
+        /// <summary>
+        /// Method that deleted the element od the list that has the same value as the one that is specified.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="value">Value of the object that is to be deleted.</param>
+        /// <returns></returns>
+        public object Delete(object value)
         {
-            
+            // If list is empty, throw an exception
+            if(Equals(head, null))
+            {
+                throw new InvalidOperationException("Error! Cannot delete from an empty list!");
+            }
+
+            // Declare a container variable for the value of the object
+            object toBeDeleted;
+
+            // If the element that should be deleted is the first element in the list
+            if(Equals(head.value, value))
+            {
+                toBeDeleted = head.value;
+                head = head.next;
+                counter--;
+                return toBeDeleted;
+            }
+
+            // Initialize a temporary element that will be used to iterate through the list
+            Node temp = head;
+
+            // Iterate through the list, searching for the element that is to be deleted
+            while (temp.next != null)
+            {
+                // If the value of the current element is the same as the specified value
+                if (Equals(temp.next.value, value))
+                {
+                    // Move the pointer
+                    toBeDeleted = temp.value;
+                    temp.next = temp.next.next;
+                    temp.prev = temp;
+                    // Decrease the number of elements
+                    counter--;
+                    // Return the deleted value
+                    return toBeDeleted;
+                }
+                // Go to the next element
+                temp = temp.next;
+            }
+
+            // If the specified element is not found
+            return null;
         }
-        */
 
         /*
         public bool Reverse()
