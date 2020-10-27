@@ -219,25 +219,49 @@ namespace Data_Structures_Library
                     toBeDeleted = temp.next.value;
                     temp.next = temp.next.next;
                     temp.prev = temp;
-                    // Decrease the number of elements
+                    // Decrease the number of elements in the list
                     counter--;
-                    // Return the deleted value
+                    // Return the value of the deleted element
                     return toBeDeleted;
                 }
                 // Go to the next element
                 temp = temp.next;
             }
 
-            // If the specified element is not found
+            // If the specified value of the element is not found
             return null;
         }
 
-        /*
+        /// <summary>
+        /// Method that adds an element with the specified value at the end of the list.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="value">Value that the new element will hold.</param>
         public void Append(object value)
         {
-            
+            // If the list is empty, add the new element at the beginning
+            if(Equals(head, null))
+            {
+                Push(value);
+                return;
+            }
+
+            // Else, initialize a temporary element to iterate over the list
+            Node temp = head;
+            // Then, initialize a new element
+            Node newNode = new Node(value, null, null);
+
+            // Iterate through the list, till the end
+            while(temp.next != null)
+            {
+                temp = temp.next;
+            }
+
+            // Finally, set the pointers and increase the number of elements in the list
+            temp.next = newNode;
+            newNode.prev = temp;
+            counter++;
         }
-        */
 
         /*
         public object Pop()
