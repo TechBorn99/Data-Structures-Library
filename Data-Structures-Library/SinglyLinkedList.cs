@@ -211,7 +211,7 @@ namespace Data_Structures_Library
         /// <param name="index">Index at which the element that is to be deleted is located.</param>
         /// <returns>The value of the deleted element, or throws an IndexOutOfRangeException if the specified index 
         /// was greater than the number of the elements in the list.</returns>
-        public object Delete(int index)
+        public object DeleteByIndex(int index)
         {
             // If the value of the passed index is greater than the number of elements in the list, or lesser than 0, throw an exception
             if (index >= counter || index < 0)
@@ -265,12 +265,12 @@ namespace Data_Structures_Library
             // Empty the current list from the end, and add all the elements to the beginning of the temporary list
             while(length != 0)
             {
-                tempList.Push(Delete(counter - 1));
+                tempList.Push(DeleteByIndex(counter - 1));
             }
             // Empty the temporary list from the end, and add all it's elements to the beginning of the current list
             while(tempList.length != 0)
             {
-                this.Push(tempList.Pop());
+                Push(tempList.Pop());
             }
             // Return true if the above is done (the list is reversed)
             return true;

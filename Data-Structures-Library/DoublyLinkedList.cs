@@ -194,7 +194,7 @@ namespace Data_Structures_Library
         /// <param name="value">Value of the object that is to be deleted.</param>
         /// <returns>Value of the deleted element, if found; null if the element is not found and throws an 
         /// InvalidOperationException if an attempt to delete from an empty list is detected.</returns>
-        public object Delete(object value)
+        public object DeleteByValue(object value)
         {
             // If list is empty, throw an exception
             if(Equals(head, null))
@@ -238,6 +238,52 @@ namespace Data_Structures_Library
 
             // If the specified value of the element is not found
             return null;
+        }
+
+        /// <summary>
+        /// Method that deletes the element of the list that is located at the specified index.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="index">Index at which the element that is to be deleted is located.</param>
+        /// <returns>The value of the deleted element, or throws an IndexOutOfRangeException if the specified index 
+        /// was greater than the number of the elements in the list.</returns>
+        public object DeleteByIndex(int index)
+        {
+            // If the value of the passed index is greater than the number of elements in the list, or lesser than 0, throw an exception
+            if (index >= counter || index < 0)
+            {
+                throw new IndexOutOfRangeException("Error! Specified index was outside the bounds of the list!");
+            }
+
+            // Declare a temporary object that will store the value of the Node that is to be deleted
+            object toBeDeleted_Value;
+
+            // If the specified index was 0, Pop() method can be called to delete that element; the value of the deleted element
+            // is then returned
+            if (index == 0)
+            {
+                toBeDeleted_Value = Pop();
+                return toBeDeleted_Value;
+            }
+
+            // Initialize temporary variables used for getting to the element at the specified index
+            Node temp = head;
+            int i = 0;
+
+            // Iterate through the list to the specified index
+            while (temp.next != null && i < index - 1)
+            {
+                temp = temp.next;
+                i++;
+            }
+
+            // Set the value of the container variable to the value of the element that is to be deleted
+            toBeDeleted_Value = temp.next.value;
+            // Move the pointer (delete the element)
+            temp.next = temp.next.next;
+            // Decrease the number of elements in the list, and return the value of the deleted element
+            counter--;
+            return toBeDeleted_Value;
         }
 
         /// <summary>
@@ -297,12 +343,33 @@ namespace Data_Structures_Library
             return toBeDeleted;
         }
 
-        /*
+        /// <summary>
+        /// Method that reverses the whole list.
+        /// </summary>
+        /// <returns>True if the reversing was successful or false if the list cannot be reversed.</returns>
         public bool Reverse()
         {
-            
+            // If the list contains 0 or 1 element, it cannot be reversed, so return false
+            if (counter == 0 || counter == 1) return false;
+
+            // Initialize a new, temporary list
+            DoublyLinkedList tempList = new DoublyLinkedList();
+
+            // Empty the current list from the end, and add all the elements to the beginning of the temporary list
+            while (length != 0)
+            {
+                tempList.Push(DeleteByIndex(counter - 1));
+            }
+
+            // Empty the temporary list from the end, and add all it's elements to the beginning of the current list
+            while (tempList.length != 0)
+            {
+                Push(tempList.Pop());
+            }
+
+            // Return true if the above is done (the list is reversed)
+            return true;
         }
-        */
 
         /*
         public bool Swap(int first, int second)
