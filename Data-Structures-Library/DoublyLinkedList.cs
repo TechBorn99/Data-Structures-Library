@@ -43,7 +43,15 @@ namespace Data_Structures_Library
         public void Push(object value)
         {
             // Initialize a new element with the specified value and pointer to the previously first element in the list
-            head = new Node(value, null, head);
+            Node new_Node = new Node(value, null, head);
+
+            // If the list is not empty, set the previous pointer of the previously first element to the new element
+            if (head != null)
+                head.prev = new_Node;
+
+            // Set the head pointer
+            head = new_Node;
+
             // Increase the number of elements in the list by 1
             counter++;
         }
@@ -263,12 +271,31 @@ namespace Data_Structures_Library
             counter++;
         }
 
-        /*
+        /// <summary>
+        /// Method that deletes the first element of the list. Time complexity: O(1).
+        /// </summary>
+        /// <returns>Value of the object that is deleted, or throws an InvalidOperationException if an attempt to delete from an empty list is made.</returns>
         public object Pop()
         {
-            
+            // Throw an exception if the method is called when the list is already empty
+            if (counter == 0)
+            {
+                throw new InvalidOperationException("Error! Trying to delete from an already empty list!");
+            }
+
+            // initialize a temporary container variable
+            object toBeDeleted = head.value;
+
+            // If there is only one element in the list
+            if (counter == 1) head = null;
+            // If there is more than one element in the list
+            else head = head.next;
+
+            // Decrease the number of elements in the list by one
+            counter--;
+            // Return the value of the deleted element
+            return toBeDeleted;
         }
-        */
 
         /*
         public bool Reverse()
