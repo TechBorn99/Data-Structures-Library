@@ -371,11 +371,45 @@ namespace Data_Structures_Library
             return true;
         }
 
-        /*
+        /// <summary>
+        /// Method that swaps the values of the elements at the specified indexes.
+        /// </summary>
+        /// <param name="first">Index of the first element that is to be swapped.</param>
+        /// <param name="second">Index of the second element that is to be swapped.</param>
+        /// <returns>True if the swap was successful, throws an IndexOutOfRangeException if one of the parameteres is outside the
+        /// bounds of the list.</returns>
         public bool Swap(int first, int second)
         {
-            
+            // If one of the specified indexes is greater than the number of elements, or lesser than 0, throw an exception
+            if(first >= counter || second >= counter || first < 0 || second < 0)
+            {
+                throw new IndexOutOfRangeException("Error! One of the specified indexes was outside the bounds of the list!");
+            }
+
+            // Initialize the elements that are about to be swapped
+            Node firstElem = head;
+            Node secondElem = head;
+
+            // Find the first element
+            while(first != 0)
+            {
+                firstElem = firstElem.next;
+                first--;
+            }
+            // Find the second element
+            while(second != 0)
+            {
+                secondElem = secondElem.next;
+                second--;
+            }
+
+            // Swap the values of the elements
+            object temp = firstElem.value;
+            firstElem.value = secondElem.value;
+            secondElem.value = temp;
+
+            // Return true if the values of the elements are swapped
+            return true;
         }
-        */
     }
 }
