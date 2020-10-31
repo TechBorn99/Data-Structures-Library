@@ -140,16 +140,15 @@ namespace Data_Structures_Library
             return counter == 0;
         }
 
-        /*
         /// <summary>
-        /// 
+        /// Method that shows if the stack is full. Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if the stack is full, or false if it isn't.</returns>
         public bool IsFull()
         {
-
+            // If the stack is implemented as a SinglyLinkedList, it cannot be  filled,
+            // but return true if the stack that is implemented as an array is full
+            return elements == null ? false : counter == MAXSIZE;
         }
-
-        */
     }  
 }
