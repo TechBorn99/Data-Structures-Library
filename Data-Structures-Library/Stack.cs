@@ -131,16 +131,16 @@ namespace Data_Structures_Library
             return elements == null ? head.value : elements[0];
         }
 
-        /*
         /// <summary>
-        /// 
+        /// Method that shows if the stack is empty. Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if the stack is empty, or false if it isn't.</returns>
         public bool IsEmpty()
         {
-
+            return counter == 0;
         }
 
+        /*
         /// <summary>
         /// 
         /// </summary>
