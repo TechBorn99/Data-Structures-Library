@@ -161,7 +161,7 @@ namespace Data_Structures_Library
         {
             // If stack is empty return false
             if (counter == 0) return false;
-            // If stack is implemented as a list
+            // If stack is implemented as a SinglyLinekdList
             if (elements == null)
             {
                 // Initialize a new element for iterating through the Stack
@@ -182,6 +182,36 @@ namespace Data_Structures_Library
             }
             // Return false if the element with the specified value is not found
             return false;
+        }
+
+        /// <summary>
+        /// Method that prints out all the elements of the stack in the console. Time complexity: O(n).
+        /// </summary>
+        public void Print()
+        {
+            // If stack is implemented as a SinglyLinekdList
+            if (elements == null)
+            {
+                // Initialize a temporary element to iterate through the stack
+                Node temp = head;
+                // Iterate through the stack
+                while (temp != null)
+                {
+                    // Print out the value of the current element in the console
+                    Console.Write(temp.value + "\t");
+                    // Go to the next element
+                    temp = temp.next;
+                }
+            }
+            // If stack is implemented as an array
+            else
+            {
+                // Print out the values of all the elements in the console
+                foreach (object i in elements)
+                {
+                    Console.Write(i + "\t");
+                }
+            }
         }
     }  
 }
