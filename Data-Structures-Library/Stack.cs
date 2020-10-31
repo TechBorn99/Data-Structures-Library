@@ -150,5 +150,38 @@ namespace Data_Structures_Library
             // but return true if the stack that is implemented as an array is full
             return elements == null ? false : counter == MAXSIZE;
         }
+
+        /// <summary>
+        /// Method that checks whether an element with the specified value exists in the Stack.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="value">Value of the element that is searched for.</param>
+        /// <returns>True if the element is in the Stack, false if it doesn't.</returns>
+        public bool Contains(object value)
+        {
+            // If stack is empty return false
+            if (counter == 0) return false;
+            // If stack is implemented as a list
+            if (elements == null)
+            {
+                // Initialize a new element for iterating through the Stack
+                Node temp = head;
+                // Iterate through the stack
+                while(temp.next != null)
+                {
+                    // If the element with the specified valeu is found, return true
+                    if (Equals(temp.value, value)) return true;
+                    // Go to the next element
+                    temp = temp.next;
+                }
+            }
+            // If stack is implemented as an array
+            else
+            {
+                if (elements.Contains(value)) return true;
+            }
+            // Return false if the element with the specified value is not found
+            return false;
+        }
     }  
 }
