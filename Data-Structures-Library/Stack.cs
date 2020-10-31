@@ -213,5 +213,43 @@ namespace Data_Structures_Library
                 }
             }
         }
+
+        /// <summary>
+        /// Getter for the number of elements in the stack.
+        /// </summary>
+        public int length
+        {
+            get
+            {
+                return counter;
+            }
+        }
+
+        /// <summary>
+        /// Method that deletes all the elements from the stack. Time complexity: O(1).
+        /// </summary>
+        /// <returns>False if the stack is already empty, true if the deleting was successful.</returns>
+        public bool Clear()
+        {
+            // Return false if the stack is empty
+            if (counter == 0) return false;
+            // If stack is implemented as a SinglyLinkedList
+            if(elements == null)
+            {
+                // Set the pointer to the first element to null
+                head = null;
+            }
+            // If stack is implemented as an array
+            else
+            {
+                // Clear the array
+                Array.Clear(elements, 0, elements.Length);
+            }
+
+            // Set the number of elements to 0
+            counter = 0;
+            // Return true if the deleting was successful
+            return true;
+        }
     }  
 }
