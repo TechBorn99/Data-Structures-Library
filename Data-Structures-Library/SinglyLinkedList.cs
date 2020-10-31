@@ -190,7 +190,7 @@ namespace Data_Structures_Library
                 throw new InvalidOperationException("Error! Trying to delete from an already empty list!");
             }
 
-            // initialize a temporary container variable
+            // Initialize a temporary container variable
             object toBeDeleted = head.value;
 
             // If there is only one element in the list
