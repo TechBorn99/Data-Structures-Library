@@ -81,7 +81,7 @@ namespace Data_Structures_Library
         }
         
         /// <summary>
-        /// Method that deletes the top element of the stack. Time complexity: O().
+        /// Method that deletes the top element of the stack. Time complexity: O(1).
         /// </summary>
         /// <returns>Value of the object that is deleted, or throws an InvalidOperationException if an attempt to delete from an empty stack is made.</returns>
         public object Pop()
@@ -119,16 +119,19 @@ namespace Data_Structures_Library
             return toBeDeleted;
         }
 
-        /*
         /// <summary>
-        /// 
+        /// Method that returns the value of the top (last added) element of the stack. Time complexity: O(1).
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Value of the object that is at the top of the stack, or null if the stack is empty.</returns>
         public object Peek()
         {
-
+            // If the stack is empty
+            if (counter == 0) return null;
+            // Return the value of the object at the top of the stack
+            return elements == null ? head.value : elements[0];
         }
 
+        /*
         /// <summary>
         /// 
         /// </summary>
