@@ -47,7 +47,88 @@ namespace Data_Structures_Library
             MAXSIZE = size;
             elements = new object[MAXSIZE];
         }
+        /*
 
-        
+        /// <summary>
+        /// Method that adds an element at the end of the queue. Time complexity: O(n).
+        /// </summary>
+        /// <param name="value">Value that the new element will be initialized with.</param>
+        public void Enqueue(object value)
+        {
+
+        }
+
+        /// <summary>
+        /// Method that deletes the first added element of the queue. Time complexity: O(1).
+        /// </summary>
+        /// <returns>Value of the object that is deleted, or throws an InvalidOperationException if an attempt to delete from an empty queue is made.</returns>
+        public object Dequeue()
+        {
+
+        }
+
+        /// <summary>
+        /// Method that returns the value of the first added element of the queue. Time complexity: O(1).
+        /// </summary>
+        /// <returns>Value of the object that is at the beginning of the queue, or null if the queue is empty.</returns>
+        public object Peek()
+        {
+
+        }
+
+        /// <summary>
+        /// Method that shows if the queue is empty. Time complexity: O(1).
+        /// </summary>
+        /// <returns>True if the queue is empty, or false if it isn't.</returns>
+        public bool IsEmpty()
+        {
+
+        }
+
+        /// <summary>
+        /// Method that shows if the queue is full. Time complexity: O(1).
+        /// </summary>
+        /// <returns>True if the queue is full, or false if it isn't.</returns>
+        public bool IsFull()
+        {
+
+        }
+
+        /// <summary>
+        /// Method that checks whether an element with the specified value exists in the queue.
+        /// Time complexity: O(n).
+        /// </summary>
+        /// <param name="value">Value of the element that is searched for.</param>
+        /// <returns>True if the element is in the queue, false if it doesn't.</returns>
+        public bool Contains(object value)
+        {
+
+        }
+
+        /// <summary>
+        /// Method that prints out all the elements of the queue in the console. Time complexity: O(n).
+        /// </summary>
+        public void Print()
+        {
+
+        }
+
+        /// <summary>
+        /// Getter for the number of elements in the queue.
+        /// </summary>
+        public int length
+        {
+
+        }
+
+        /// <summary>
+        /// Method that deletes all the elements from the queue. Time complexity: O(1).
+        /// </summary>
+        /// <returns>False if the queue is already empty, true if the deleting was successful.</returns>
+        public bool Clear()
+        {
+
+        }
+        */
     }
 }
