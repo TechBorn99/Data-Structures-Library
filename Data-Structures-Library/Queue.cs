@@ -96,16 +96,16 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
         /// <summary>
         /// Method that shows if the queue is empty. Time complexity: O(1).
         /// </summary>
         /// <returns>True if the queue is empty, or false if it isn't.</returns>
         public bool IsEmpty()
         {
-
+            return counter == 0;
         }
-
+        /*
         /// <summary>
         /// Method that shows if the queue is full. Time complexity: O(1).
         /// </summary>
