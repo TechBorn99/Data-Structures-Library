@@ -133,23 +133,45 @@ namespace Data_Structures_Library
         {
 
         }
+        */
 
         /// <summary>
         /// Getter for the number of elements in the queue.
         /// </summary>
         public int length
         {
-
+            get
+            {
+                return counter;
+            }
         }
-
+        
         /// <summary>
         /// Method that deletes all the elements from the queue. Time complexity: O(1).
         /// </summary>
         /// <returns>False if the queue is already empty, true if the deleting was successful.</returns>
         public bool Clear()
         {
+            // If queue is empty
+            if (counter == 0) return false;
 
+            // If queue is implemented as a SinglyLinkedList
+            if(elements == null)
+            {
+                // Set the pointer to the first element to null
+                head = null;
+            }
+            // If queue is implemented as an array
+            else
+            {
+                // Clear the array
+                Array.Clear(elements, 0, elements.Length);
+            }
+
+            // Set the number of elements to 0
+            counter = 0;
+            // Return true if the deleting was successful
+            return true;
         }
-        */
     }
 }
