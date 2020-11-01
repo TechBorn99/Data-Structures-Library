@@ -105,16 +105,19 @@ namespace Data_Structures_Library
         {
             return counter == 0;
         }
-        /*
+
         /// <summary>
         /// Method that shows if the queue is full. Time complexity: O(1).
         /// </summary>
         /// <returns>True if the queue is full, or false if it isn't.</returns>
         public bool IsFull()
         {
-
+            // If the queue is implemented as a SinglyLinkedList, it cannot be  filled,
+            // but return true if the queue that is implemented as an array is full
+            return elements == null ? false : counter == MAXSIZE;
         }
 
+        /*
         /// <summary>
         /// Method that checks whether an element with the specified value exists in the queue.
         /// Time complexity: O(n).
