@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Data_Structures_Library
 {
@@ -47,7 +48,6 @@ namespace Data_Structures_Library
             MAXSIZE = size;
             elements = new object[MAXSIZE];
         }
-        /*
 
         /// <summary>
         /// Method that adds an element at the end of the queue. Time complexity: O(n).
@@ -55,9 +55,30 @@ namespace Data_Structures_Library
         /// <param name="value">Value that the new element will be initialized with.</param>
         public void Enqueue(object value)
         {
-
+            // If queue is implemented as SinglyLinkedList
+            if(elements == null)
+            {
+                // Add a new element at the beginning
+                head = new Node(value, head);
+            }
+            // If queue is implemented as an array
+            else
+            {
+                // If queue is full, throw an exception
+                if (counter == MAXSIZE)
+                {
+                    throw new InvalidOperationException("Error! Attempt to add to a full queue is made!");
+                }
+                // Move the data by one space forward in the array
+                Array.Copy(elements, 0, elements, 1, elements.Length - 1);
+                // Insert the new element
+                elements[0] = value;
+            }
+            // Increase the number of elements in the queue
+            counter++;
         }
 
+        /*
         /// <summary>
         /// Method that deletes the first added element of the queue. Time complexity: O(1).
         /// </summary>
