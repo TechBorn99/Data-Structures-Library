@@ -8,7 +8,7 @@ namespace Data_Structures_Library
     /// This class contains methods for manipulating the stack.
     /// It can be implemented as a Singly Linked List or an array.
     /// </summary>
-    class Stack
+    public class Stack
     {
         /// <summary>
         /// Represents the Node (element) of the Stack, with attributes value and next (pointer to the next value in the stack), and a constructor.

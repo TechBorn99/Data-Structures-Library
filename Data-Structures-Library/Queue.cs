@@ -8,7 +8,7 @@ namespace Data_Structures_Library
     /// Class that represents a non-generic Queue, a FIFO (First In First Out) data structure, containing necessary methods to manipulate it. 
     /// Can be implemented as an array, or as a SinglyLinkedList.
     /// </summary>
-    class Queue
+    public class Queue
     {
         /// <summary>
         /// Represents the Node (element) of the Queue, with attributes value and next (pointer to the next value in the queue), and a constructor.
@@ -100,27 +100,51 @@ namespace Data_Structures_Library
                 // Initialize temporary variable used for iterating to the last element
                 Node temp = head;
 
-                // Iterate through the queue to the last element
-                while (temp.next != null)
+                // If there is only one element in the queue
+                if (head.next == null)
                 {
-                    temp = temp.next;
+                    toBeDeleted_Value = head.value;
+                    head = null;
                 }
+                else
+                {
+                    // Iterate through the queue to the last element
+                    while (temp.next.next != null)
+                    {
+                        temp = temp.next;
+                    }
 
-                // Set the value of the container variable to the value of the element that is to be deleted
-                toBeDeleted_Value = temp.next.value;
-                // Move the pointer (delete the element)
-                temp.next = temp.next.next;
+                    // Set the value of the container variable to the value of the element that is to be deleted
+                    toBeDeleted_Value = temp.next.value;
+                    // Move the pointer (delete the element)
+                    temp.next = null;
+                }
             }
             // If queue is implemented as an array
             else
             {
                 toBeDeleted_Value = elements[counter - 1];
                 // Delete the last element from the array
-                elements = elements.Take(elements.Count() - 1).ToArray();
+                elements = RemoveLast(elements);
             }
             // Decrease the number of elements in the queue, and return the value of the deleted element
             counter--;
             return toBeDeleted_Value;
+        }
+
+        /// <summary>
+        /// Helper method that deletes the value of the last element in the array.
+        /// </summary>
+        /// <param name="source">Source array from which the last element will be deleted.</param>
+        /// <returns>New array without the last element of the previously passed array.</returns>
+        private object[] RemoveLast(object[] source)
+        {
+            // Initialize a temporary array
+            object[] temp = new object[MAXSIZE];
+            // Copy all values of the previous array, except the last one
+            Array.Copy(elements, temp, counter - 1);
+            // Return the new array
+            return temp;
         }
 
         /// <summary>
