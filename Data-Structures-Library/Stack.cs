@@ -66,7 +66,7 @@ namespace Data_Structures_Library
             else
             {
                 // If stack is full, throw an exception
-                if ((MAXSIZE - elements.Count(s => s == null)) == MAXSIZE)
+                if (counter == MAXSIZE)
                 {
                     throw new InvalidOperationException("Error! Attempt to add to a full stack is made!");
                 }
@@ -169,7 +169,7 @@ namespace Data_Structures_Library
                 // Iterate through the stack
                 while(temp.next != null)
                 {
-                    // If the element with the specified valeu is found, return true
+                    // If the element with the specified value is found, return true
                     if (Equals(temp.value, value)) return true;
                     // Go to the next element
                     temp = temp.next;
