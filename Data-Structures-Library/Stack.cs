@@ -198,7 +198,7 @@ namespace Data_Structures_Library
                 while (temp != null)
                 {
                     // Print out the value of the current element in the console
-                    Console.Write(temp.value + "\t");
+                    Console.Write($"{temp.value} ");
                     // Go to the next element
                     temp = temp.next;
                 }
@@ -207,9 +207,9 @@ namespace Data_Structures_Library
             else
             {
                 // Print out the values of all the elements in the console
-                foreach (object i in elements)
+                foreach (object element in elements)
                 {
-                    Console.Write(i + "\t");
+                    Console.Write($"{element} ");
                 }
             }
         }
