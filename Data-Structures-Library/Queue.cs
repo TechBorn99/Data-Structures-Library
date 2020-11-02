@@ -79,16 +79,50 @@ namespace Data_Structures_Library
             counter++;
         }
 
-        /*
         /// <summary>
-        /// Method that deletes the first added element of the queue. Time complexity: O(1).
+        /// Method that deletes the first added element of the queue. Time complexity: O(n).
         /// </summary>
         /// <returns>Value of the object that is deleted, or throws an InvalidOperationException if an attempt to delete from an empty queue is made.</returns>
         public object Dequeue()
         {
+            // If queue is empty
+            if(counter == 0)
+            {
+                throw new InvalidOperationException("Error! Trying to delete from an empty queue is made!");
+            }
 
+            // Declare a temporary object that will store the value of the element that is to be deleted
+            object toBeDeleted_Value;
+
+            // If queue is implemented as a SinglyLinkedList
+            if (elements == null)
+            {
+                // Initialize temporary variable used for iterating to the last element
+                Node temp = head;
+
+                // Iterate through the queue to the last element
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+
+                // Set the value of the container variable to the value of the element that is to be deleted
+                toBeDeleted_Value = temp.next.value;
+                // Move the pointer (delete the element)
+                temp.next = temp.next.next;
+            }
+            // If queue is implemented as an array
+            else
+            {
+                toBeDeleted_Value = elements[counter - 1];
+                // Delete the last element from the array
+                elements = elements.Take(elements.Count() - 1).ToArray();
+            }
+            // Decrease the number of elements in the queue, and return the value of the deleted element
+            counter--;
+            return toBeDeleted_Value;
         }
-        */
+
         /// <summary>
         /// Method that returns the value of the first added element of the queue. Time complexity: O(1).
         /// </summary>
