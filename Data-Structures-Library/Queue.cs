@@ -88,16 +88,35 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
         /// <summary>
         /// Method that returns the value of the first added element of the queue. Time complexity: O(1).
         /// </summary>
         /// <returns>Value of the object that is at the beginning of the queue, or null if the queue is empty.</returns>
         public object Peek()
         {
-
+            // If queue is empty
+            if (counter == 0) return null;
+            // If queue is implemented as a SinglyLinkedList
+            if(elements == null)
+            {
+                // Initialize a Node element for iterating through the queue
+                Node temp = head;
+                // Iterate through the queue
+                while(temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                // Return the value of the current element
+                return temp.value;
+            }
+            // If queue is implemented as an array
+            else
+            {
+                return elements[counter - 1];
+            }
         }
-        */
+        
         /// <summary>
         /// Method that shows if the queue is empty. Time complexity: O(1).
         /// </summary>
