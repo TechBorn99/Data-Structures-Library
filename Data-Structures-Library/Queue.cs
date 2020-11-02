@@ -118,7 +118,6 @@ namespace Data_Structures_Library
             return elements == null ? false : counter == MAXSIZE;
         }
 
-        /*
         /// <summary>
         /// Method that checks whether an element with the specified value exists in the queue.
         /// Time complexity: O(n).
@@ -127,9 +126,32 @@ namespace Data_Structures_Library
         /// <returns>True if the element is in the queue, false if it doesn't.</returns>
         public bool Contains(object value)
         {
-
+            // If queue is empty
+            if (counter == 0) return false;
+            // If queue is implemented as a SinglyLinkedList
+            if(elements == null)
+            {
+                // Initialize a new element for iterating through the queue
+                Node temp = head;
+                // Iterate through the queue
+                while (temp.next != null)
+                {
+                    // If the element with the specified value is found, return true
+                    if (Equals(temp.value, value)) return true;
+                    // Go to the next element
+                    temp = temp.next;
+                }
+            }
+            // If queue is implemented as an array
+            else
+            {
+                // If element with the specified value is in the array, return true
+                if (elements.Contains(value)) return true;
+            }
+            // Return false if element with the specified value is not found in the queue
+            return false;
         }
-        */
+
         /// <summary>
         /// Method that prints out all the elements of the queue in the console. Time complexity: O(n).
         /// </summary>
