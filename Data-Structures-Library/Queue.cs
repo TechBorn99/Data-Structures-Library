@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 
 namespace Data_Structures_Library
@@ -128,15 +129,34 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
         /// <summary>
         /// Method that prints out all the elements of the queue in the console. Time complexity: O(n).
         /// </summary>
         public void Print()
         {
-
+            // If queue is implemented as SinglyLinkedList
+            if (elements == null)
+            {
+                // Initialize a temporary variable for iterating through the queue
+                Node temp = head;
+                // Iterate through the queue and print out value of elements in the console
+                while(temp != null)
+                {
+                    Console.Write($"{temp.value} ");
+                    temp = temp.next;
+                }
+            }
+            // If queue is implemented as an array
+            else
+            {
+                // Print out the values of all elements in the console
+                foreach (object element in elements)
+                {
+                    Console.Write($"{element} ");
+                }
+            }
         }
-        */
 
         /// <summary>
         /// Getter for the number of elements in the queue.
