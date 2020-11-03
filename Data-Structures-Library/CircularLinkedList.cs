@@ -23,5 +23,43 @@ namespace Data_Structures_Library
         private Node tail;
         private int counter = 0;
 
+        /*
+
+        public void Push(object value)
+        {
+
+        }
+
+        public void Append(object value)
+        {
+
+        }
+
+        public bool Contains(object value)
+        {
+
+        }
+
+        public object Pop()
+        {
+
+        }
+
+        public object Delete(object value)
+        {
+
+        }
+
+        public bool Clear()
+        {
+
+        }
+
+        public void Print()
+        {
+
+        }
+
+        */
     }
 }
