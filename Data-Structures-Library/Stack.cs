@@ -54,6 +54,7 @@ namespace Data_Structures_Library
         /// Method that adds an element at the top of the stack. Time complexity: O(1).
         /// </summary>
         /// <param name="value">Value that the new element will be initialized with.</param>
+        /// <exception cref="System.InvalidOperationException">Thorwn if an attempt to add to a full stack is made.</exception>
         public void Push(object value)
         {
             // If stack is implemented through the singly linked list
@@ -79,11 +80,12 @@ namespace Data_Structures_Library
             // Increase the number of elements
             counter++;
         }
-        
+
         /// <summary>
         /// Method that deletes the top element of the stack. Time complexity: O(1).
         /// </summary>
-        /// <returns>Value of the object that is deleted, or throws an InvalidOperationException if an attempt to delete from an empty stack is made.</returns>
+        /// <returns>Value of the object that is deleted.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown if an attempt to delete from an empty stack is made.</exception>
         public object Pop()
         {
             // If the stack is empty, throw an exception

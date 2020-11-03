@@ -36,8 +36,8 @@ namespace Data_Structures_Library
         /// Getter for the list element at the specified index.
         /// </summary>
         /// <param name="index">Index of the element that is to be searched for.</param>
-        /// <returns>Value of the element in the specified index, or throws an IndexOutOfRangeException if the specified index was outside
-        /// the bounds of the list.</returns>
+        /// <returns>Value of the element at the specified index.</returns>
+        /// <exception cref="System.IndexOutOfRangeException">Thrown if the specified index was outside the bounds of the list.</exception>
         public object this[int index]
         {
             get
@@ -180,8 +180,8 @@ namespace Data_Structures_Library
         /// <summary>
         /// Method that deletes the first element in the list. Time complexity: O(1).
         /// </summary>
-        /// <returns>The value of the deleted element, or throws an exception if an attempt to delete from an already empty list 
-        /// is made.</returns>
+        /// <returns>The value of the deleted element.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown if the specified index was outside the bounds of the list.</exception>
         public object Pop()
         {
             // Throw an exception if the method is called when the list is already empty
@@ -209,8 +209,8 @@ namespace Data_Structures_Library
         /// Time complexity: O(n).
         /// </summary>
         /// <param name="index">Index at which the element that is to be deleted is located.</param>
-        /// <returns>The value of the deleted element, or throws an IndexOutOfRangeException if the specified index 
-        /// was greater than the number of the elements in the list.</returns>
+        /// <returns>The value of the deleted element.</returns>
+        /// <exception cref="System.IndexOutOfRangeException">Thrown if the specified index was greater than the number of the elements in the list.</exception>
         public object DeleteByIndex(int index)
         {
             // If the value of the passed index is greater than the number of elements in the list, or lesser than 0, throw an exception
@@ -281,8 +281,8 @@ namespace Data_Structures_Library
         /// </summary>
         /// <param name="first">Index of the first element that is to be swapped.</param>
         /// <param name="second">Index of the second element that is to be swapped.</param>
-        /// <returns>True if the swap was successful, throws an IndexOutOfRangeException if one of the parameteres is outside the
-        /// bounds of the list.</returns>
+        /// <returns>True if the swap was successful.</returns>
+        /// <exception cref="System.IndexOutOfRangeException">Thrown if one of the parameteres is outside the bounds of the list.</exception>
         public bool Swap(int first, int second)
         {
             // If one of the specified indexes is greater than the number of elements, or lesser than 0, throw an exception

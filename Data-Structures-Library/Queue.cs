@@ -54,6 +54,7 @@ namespace Data_Structures_Library
         /// Method that adds an element at the end of the queue. Time complexity: O(n).
         /// </summary>
         /// <param name="value">Value that the new element will be initialized with.</param>
+        /// <exception cref="System.InvalidOperationException">Thrown if an attempt to add to a full queue is made.</exception>
         public void Enqueue(object value)
         {
             // If queue is implemented as SinglyLinkedList
@@ -82,7 +83,8 @@ namespace Data_Structures_Library
         /// <summary>
         /// Method that deletes the first added element of the queue. Time complexity: O(n).
         /// </summary>
-        /// <returns>Value of the object that is deleted, or throws an InvalidOperationException if an attempt to delete from an empty queue is made.</returns>
+        /// <returns>Value of the object that is deleted.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown if an attempt to delete from an empty queue is made.</exception>
         public object Dequeue()
         {
             // If queue is empty
