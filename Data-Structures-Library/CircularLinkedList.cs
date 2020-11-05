@@ -92,14 +92,23 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
         /// <summary>
         /// Method that prints out values of all elements in the list in the console.
         /// </summary>
         public void Print()
         {
-
+            // Initialize the temporary Node object used for iterating through the list
+            Node temp = head;
+            
+            // Iterate through the list
+            while(temp != null)
+            {
+                // Print the value of the current element
+                Console.Write($"{temp.value} ");
+                // Go to the next element
+                temp = temp.next;
+            }
         }
-        */
     }
 }
