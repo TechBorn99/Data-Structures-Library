@@ -120,5 +120,16 @@ namespace Data_Structures_Library
                 temp = temp.next;
             }
         }
+
+        /// <summary>
+        /// Getter for the number of elements in the list
+        /// </summary>
+        public int Length
+        {
+            get
+            {
+                return counter;
+            }
+        }
     }
 }
