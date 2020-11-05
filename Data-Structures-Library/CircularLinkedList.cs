@@ -83,16 +83,26 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
         /// <summary>
         /// Method that deletes all the elements from the list.
         /// </summary>
         /// <returns>True if the deletion was successful, false if the list was already empty.</returns>
         public bool Clear()
         {
+            // Return false if the list is empty
+            if (counter == 0)
+            {
+                return false;
+            }
 
+            // Set the pointers of the head and tail to the null, and the counter to 0, to delete all the elements in the list
+            head = null;
+            tail = null;
+            counter = 0;
+            return true;
         }
-        */
+
         /// <summary>
         /// Method that prints out values of all elements in the list in the console.
         /// </summary>
