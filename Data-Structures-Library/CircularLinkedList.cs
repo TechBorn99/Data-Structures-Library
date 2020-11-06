@@ -72,7 +72,7 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
         /// <summary>
         /// Method that checks if the element with the specified value is present in the list. Time complexity: O(n).
         /// </summary>
@@ -80,9 +80,23 @@ namespace Data_Structures_Library
         /// <returns>True if the element is present in the list, false if it isn't.</returns>
         public bool Contains(object value)
         {
-
+            // Initialize an element for iterating through the list
+            Node temp = head;
+            // Iterate through the list, until head is again found
+            while(temp.next != head)
+            {
+                // If value of the current element is the same as the specified value
+                if(Equals(temp.value, value))
+                {
+                    return true;
+                }
+                // Go to the next element
+                temp = temp.next;
+            }
+            // If element is not found
+            return false;
         }
-
+        /*
         /// <summary>
         /// Method that deletes the forst element in the list. Time complexity: O(1).
         /// </summary>
