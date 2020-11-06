@@ -34,16 +34,36 @@ namespace Data_Structures_Library
         // Number of elements in the list
         private int counter = 0;
 
-        /*
         /// <summary>
         /// Method that adds an element at the start of Circular Linked List. Time complexity: O(1).
         /// </summary>
         /// <param name="value">Value that the new element will be initialized with.</param>
         public void Push(object value)
         {
-
+            // Initialize a new element
+            Node newNode = new Node(value, head);
+            // If list is empty
+            if(head == null)
+            {
+                // Set the pointers for head and tail, and connect those two
+                head = newNode;
+                tail = newNode;
+                tail.next = head;
+            }
+            // If list is not empty
+            else
+            {
+                // Set the pointers for head and tail, and connect those two
+                Node temp = head;
+                newNode.next = temp;
+                head = newNode;
+                tail.next = head;
+            }
+            // Increase the number of elements in the list
+            counter++;
         }
 
+        /*
         /// <summary>
         /// Method that adds an element at the end of the Circular Linked List. Time complexity: O().
         /// </summary>
