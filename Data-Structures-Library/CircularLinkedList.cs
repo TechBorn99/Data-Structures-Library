@@ -63,16 +63,32 @@ namespace Data_Structures_Library
             counter++;
         }
 
-        /*
         /// <summary>
         /// Method that adds an element at the end of the Circular Linked List. Time complexity: O().
         /// </summary>
         /// <param name="value">Value that the new element will be initialized with.</param>
         public void Append(object value)
         {
-
+            // Check if the list is empty
+            if (head == null) Push(value);
+            else
+            {
+                // Initialize a new element
+                Node newNode = new Node(value, head);
+                // Initialize a new element for iterating to the last element and
+                // iterate to the end of the list
+                Node current = head;
+                do
+                {
+                    current = current.next;
+                } while (current.next != head);
+                // Set the pointers and increase the number of elements in the lsit
+                current.next = newNode;
+                tail = newNode;
+                counter++;
+            }
         }
-        */
+
         /// <summary>
         /// Method that checks if the element with the specified value is present in the list. Time complexity: O(n).
         /// </summary>
