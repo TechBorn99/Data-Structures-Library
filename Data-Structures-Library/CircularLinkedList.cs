@@ -112,7 +112,7 @@ namespace Data_Structures_Library
             // If element is not found
             return false;
         }
-        /*
+        
         /// <summary>
         /// Method that deletes the forst element in the list. Time complexity: O(1).
         /// </summary>
@@ -120,9 +120,33 @@ namespace Data_Structures_Library
         /// <exception cref="System.InvalidOperationException">Thrown if an attempt to delete from an empty list is made.</exception>
         public object Pop()
         {
+            // Check if the list is empty
+            if(counter == 0)
+            {
+                throw new InvalidOperationException("Error! Attempt to delete from an empty list!");
+            }
 
+            // Store the value of the element that will be deleted
+            object toBeDeleted = head.value;
+
+            // Check if there is only one element in the list
+            if(counter == 1)
+            {
+                // Remove the pointers (set them to null)
+                head = tail = null;
+            }
+            else
+            {
+                // Move the pointer
+                head = head.next;
+                tail.next = head;
+            }
+            // Decrease the number of elements in the list
+            counter--;
+            // Return the deleted value
+            return toBeDeleted;
         }
-
+        /*
         /// <summary>
         /// Method that deletes the element with the specified value from the list. Time complexity: O(n).
         /// </summary>
@@ -156,8 +180,15 @@ namespace Data_Structures_Library
         /// <summary>
         /// Method that prints out values of all elements in the list in the console.
         /// </summary>
+        /// <exception cref="System.InvalidOperationException">Thrown if an attempt to read data from an empty list is made.</exception>
         public void Print()
         {
+            // If list is empty
+            if(counter == 0)
+            {
+                throw new InvalidOperationException("Error! Cannot read data from an empty list!");
+            }
+
             // Initialize the temporary Node object used for iterating through the list
             Node temp = head;
             
