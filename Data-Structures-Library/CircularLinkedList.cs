@@ -146,18 +146,51 @@ namespace Data_Structures_Library
             // Return the deleted value
             return toBeDeleted;
         }
-        /*
+
         /// <summary>
         /// Method that deletes the element with the specified value from the list. Time complexity: O(n).
         /// </summary>
         /// <param name="value">Value of the element that is to be deleted.</param>
-        /// <returns>Value of the element, if it was successfully deleted, false if the element was not found in the list.</returns>
+        /// <returns>True if the deleting was successful, else false.</returns>
         /// <exception cref="System.InvalidOperationException">Thrown if an attempt to delete from an empty list is made.</exception>
-        public object Delete(object value)
+        public bool Delete(object value)
         {
+            // Check if the list is empty
+            if(counter == 0)
+            {
+                throw new InvalidOperationException("Error! An attempt to delete from an empty list is made!");
+            }
 
+            // Check if the first element in the list is the element that needs to be deleted
+            if(Equals(head.value, value))
+            {
+                Pop();
+                return true;
+            }
+
+            // Initialize a new temporary variable for iterating through the list
+            Node temp = head;
+
+            //Iterate through the list, until the specified value is found, or the last element is reached
+            while(temp.next != head)
+            {
+                // If the element is found
+                if(Equals(temp.next.value, value))
+                {
+                    // Move the pointers
+                    temp.next = temp.next.next;
+                    // Decrease the number of elements
+                    counter--;
+                    return true;
+                }
+                // Go to the next element
+                temp = temp.next;
+            }
+
+            // If the element was not found
+            return false;
         }
-        */
+
         /// <summary>
         /// Method that deletes all the elements from the list.
         /// </summary>
