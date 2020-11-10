@@ -24,5 +24,11 @@ namespace Data_Structures_Library
             this.min = min;
             this.max = max;
         }
+
+        public long Next()
+        {
+            seed = (a * seed + c) % m;
+            return (long)((seed / (m - 1)) * (max - min) + min);
+        }
     }
 }
