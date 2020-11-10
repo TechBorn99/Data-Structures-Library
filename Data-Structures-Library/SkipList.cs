@@ -37,6 +37,6 @@ namespace Data_Structures_Library
         private Node tail;
         private int lvl;
         private int counter;
-
+        RandomNumberGenerator random = new RandomNumberGenerator();
     }
 }
