@@ -150,12 +150,24 @@ namespace Data_Structures_Library
         {
 
         }
-
-        private void InsertNextAbove()
+        */
+        /// <summary>
+        /// Helper method used only if the need to balance out the SkipList has occured.
+        /// </summary>
+        /// <param name="key">Key of the new element.</param>
+        /// <param name="value">Value of the new element.</param>
+        /// <param name="next">Pointer to the element after which the new element should be added.</param>
+        /// <param name="above">Pointer to the element above which the new element should be added.</param>
+        private void InsertNextAbove(string key, object value, Node after, Node above)
         {
-
+            // Initialize the new element
+            Node newNode = new Node(key, value, after.next, after, above.above, above);
+            // Set the pointers for the element to be set to the right position
+            after.next.prev = newNode;
+            after.next = newNode;
+            above.above = newNode;
         }
-
+        /*
         private void AddLayer()
         {
 
