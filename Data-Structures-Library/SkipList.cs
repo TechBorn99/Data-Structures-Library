@@ -100,14 +100,46 @@ namespace Data_Structures_Library
         {
 
         }
+        */
 
-
+        /// <summary>
+        /// Helper method that returns the element with the specified key from the bottom level list.
+        /// </summary>
+        /// <param name="key">Key for the element, used for searching for the element.</param>
+        /// <returns>The element with the specified key, if it exists in the list, or the nearest smaller entry, if it doesn't exist.</returns>
         private Node Get(string key)
         {
+            // Initialize a temporary element used for iterating through the list
+            Node current = head;
 
+            // Iterate throught the list, until the bottom level is reached
+            while(true)
+            {
+                // While not at the end of the list, or not at the searched element, iterate through the next top layer
+                while((Equals(current.next.key, Node.pInf)) && (current.next.key.CompareTo(key) <= 0))
+                {
+                    // Go to the next element at the same level
+                    current = current.next;
+                }
+
+                // Check if there are more levels below the current element
+                if(current.below != null)
+                {
+                    // If there are, go to the level of the list below
+                    current = current.below;
+                }
+                // If the lowest level is reached
+                else
+                {
+                    // Stop iterating, the closest or the searched element is found
+                    break;
+                }
+            }
+            // Return the found element
+            return current;
         }
 
-
+        /*
         public object Insert()
         {
 
