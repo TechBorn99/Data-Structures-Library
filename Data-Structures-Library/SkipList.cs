@@ -95,12 +95,18 @@ namespace Data_Structures_Library
             // Initialize the RandomNumberGenerator, used for generating random numbers
             random = new RandomNumberGenerator(-294967296, 294967296);
         }
-        /*
+
+        /// <summary>
+        /// Method that gets the value of the element with the specified key.
+        /// </summary>
+        /// <param name="key">Key of the element that is searched for.</param>
+        /// <returns>Value of the element with the specified key, or null if the element with the specified key was not found in the list.</returns>
         public object Search(string key)
         {
-
+            Node foundNode;
+            foundNode = Get(key);
+            return key.Equals(foundNode.key) ? foundNode.value : null;
         }
-        */
 
         /// <summary>
         /// Helper method that returns the element with the specified key from the bottom level list.
