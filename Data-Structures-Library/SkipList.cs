@@ -95,5 +95,71 @@ namespace Data_Structures_Library
             // Initialize the RandomNumberGenerator, used for generating random numbers
             random = new RandomNumberGenerator(-294967296, 294967296);
         }
+
+        /*
+        public object Search(string key)
+        {
+
+        }
+
+
+        private Node Get(string key)
+        {
+
+        }
+
+
+        public object Insert()
+        {
+
+        }
+
+        private void InsertNextAbove()
+        {
+
+        }
+
+        private void AddLayer()
+        {
+
+        }
+
+        public object Remove(string key)
+        {
+
+        }
+
+        public int Length
+        {
+
+        }
+
+        public int Height
+        {
+
+        }
+
+        public void PrintVertical()
+        {
+
+        }
+
+
+        private string GetOneColumn(Node toBePrinted)
+        {
+
+        }
+
+        public void PrintHorizontal()
+        {
+
+        }
+
+        private string GetOneRow(Node rowStart, int level)
+        {
+
+        }
+
+        */
     }
 }
