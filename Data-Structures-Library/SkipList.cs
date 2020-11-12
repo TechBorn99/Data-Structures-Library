@@ -103,8 +103,11 @@ namespace Data_Structures_Library
         /// <returns>Value of the element with the specified key, or null if the element with the specified key was not found in the list.</returns>
         public object Search(string key)
         {
+            // Declare the element that will store the found element
             Node foundNode;
+            // Initialize the element with the element that is found
             foundNode = Get(key);
+            // Return the value of the found element, if the keys match, or null if they do not
             return key.Equals(foundNode.key) ? foundNode.value : null;
         }
 
