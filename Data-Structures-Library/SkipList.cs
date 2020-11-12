@@ -95,7 +95,6 @@ namespace Data_Structures_Library
             // Initialize the RandomNumberGenerator, used for generating random numbers
             random = new RandomNumberGenerator(-294967296, 294967296);
         }
-
         /*
         public object Search(string key)
         {
@@ -128,16 +127,29 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
+        /// <summary>
+        /// Gets the number of elements at the bottom list level.
+        /// </summary>
         public int Length
         {
-
+            get
+            {
+                return counter;
+            }
         }
 
+        /// <summary>
+        /// Gets the number of elements in the skip list.
+        /// </summary>
         public int Height
         {
-
+            get
+            {
+                return lvl;
+            }
         }
+        /*
 
         public void PrintVertical()
         {
