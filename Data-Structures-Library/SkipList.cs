@@ -170,12 +170,39 @@ namespace Data_Structures_Library
             after.next = newNode;
             above.above = newNode;
         }
-        /*
+
+        /// <summary>
+        /// Helper method used for creating a new level (layer) at the top of the list, when needed.
+        /// </summary>
         private void AddLayer()
         {
+            // Declare the start and end element of the new level
+            Node startNode, endNode;
 
+            // Set the key and value of start and end element
+            startNode = new Node(Node.nInf, null);
+            endNode = new Node(Node.pInf, null);
+
+            // Set the pointers for the start element
+            startNode.next = endNode;
+            startNode.below = head;
+
+            // Set the pointers for the end element
+            endNode.prev = startNode;
+            endNode.below = tail;
+
+            // Set the above pointers of the elements previously being at the top level
+            head.above = startNode;
+            tail.above = endNode;
+
+            // Set the start and end element of the newly added level (layer) as the new start and end of the list
+            head = startNode;
+            tail = endNode;
+
+            // Increase the number of the levels in the list
+            lvl++;
         }
-
+        /*
         public object Remove(string key)
         {
 
