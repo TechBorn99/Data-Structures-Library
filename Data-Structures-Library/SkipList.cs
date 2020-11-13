@@ -220,7 +220,25 @@ namespace Data_Structures_Library
         /// </summary>
         public void PrintHorizontal()
         {
-
+            // Initialize a string which will be printed
+            string row = "";
+            // Initialize the temporary element that will be used for iterating through the list
+            Node temp = head;
+            // Set the temporary level used for counting how many more levels need to be printed
+            int level = lvl;
+            
+            // Iterate through the levels of the list, until the last one is reached
+            while(level != -1)
+            {
+                // Get the current row
+                row = GetOneRow(temp, level);
+                // Print the row
+                Console.WriteLine(row);
+                // Go go the level below
+                temp = temp.below;
+                // Lower the number of levels left to iterate through
+                level--;
+            }
         }
 
         /// <summary>
