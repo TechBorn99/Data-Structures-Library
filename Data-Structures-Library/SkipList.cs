@@ -214,17 +214,45 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
+        /// <summary>
+        /// Method used for printing all keys and values of all the elements in the Skip list, arranged horizontally (by rows).
+        /// </summary>
         public void PrintHorizontal()
         {
 
         }
 
+        /// <summary>
+        /// Helper method used for getting all elements in a level of a Skip list.
+        /// </summary>
+        /// <param name="rowStart">Node that is at the start of the row (level).</param>
+        /// <param name="level">Numerical representation of the level (row) it is asked for.</param>
+        /// <returns></returns>
         private string GetOneRow(Node rowStart, int level)
         {
 
-        }
+            // Store the element at the start of the row in the list
+            Node temp = rowStart;
+            // Initialize a string that will be return at the end of the method with the key and value of the first element of the row
+            string text = "{ L" + level + ": " + "\"" + temp.key + "\", ";
+            
+            // Go to the second element
+            temp = temp.next;
 
-        */
+            // Iterate through the row of a list, until positive infinity (end of the row) is reached
+            while(temp.key != Node.pInf)
+            {
+                // Append key and value of the current element
+                text += "\"" + temp.key + "\" : " + temp.value + ", ";
+                // Go to the next element in the list
+                temp = temp.next;
+            }
+
+            // Append the positive infinity
+            text += "\"" + temp.key + "\" }";
+            // Return the resulting string
+            return text;
+        }
     }
 }
