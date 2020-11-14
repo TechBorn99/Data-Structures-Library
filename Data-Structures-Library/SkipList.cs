@@ -268,12 +268,44 @@ namespace Data_Structures_Library
             // Increase the number of the levels in the list
             lvl++;
         }
-        /*
+
+        /// <summary>
+        /// A method that removes the element with the specified key from the list.
+        /// </summary>
+        /// <param name="key">Key of the element taht will be deleted.</param>
+        /// <returns>The value of the deleted element.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown if the element with the specified key doesn't exist in the list.</exception>
         public object Remove(string key)
         {
+            // Get the element with the specified key, or the closest smaller element
+            Node toBeRemoved = Get(key);
 
+            // If the element with the specified key doesn't exist in the list, throw an exception
+            if (!toBeRemoved.key.Equals(key))
+            {
+                throw new InvalidOperationException("Error! Element with the specified key does not exist in the list!");
+            }
+
+            // Store the value of the element taht will be deleted
+            object valueOfTheDeleted = toBeRemoved.value;
+
+            // Iterate through all the levels of the list
+            while(toBeRemoved != null)
+            {
+                // Move the pointers
+                toBeRemoved.prev.next = toBeRemoved.next;
+                toBeRemoved.next.prev = toBeRemoved.prev;
+                if(toBeRemoved.above != null)
+                {
+                    toBeRemoved.above.below = null;
+                }
+                toBeRemoved = toBeRemoved.above;
+            }
+
+            // Return the value of the deleted element
+            return valueOfTheDeleted;
         }
-        */
+
         /// <summary>
         /// Gets the number of elements at the bottom list level.
         /// </summary>
