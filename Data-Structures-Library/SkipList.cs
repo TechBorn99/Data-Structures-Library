@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace Data_Structures_Library
 {
@@ -93,7 +91,7 @@ namespace Data_Structures_Library
             lvl = 0;
             counter = 0;
             // Initialize the RandomNumberGenerator, used for generating random numbers
-            random = new RandomNumberGenerator(-294967296, 294967296);
+            random = new RandomNumberGenerator(-294967296, 294967295);
         }
 
         /// <summary>
@@ -148,12 +146,80 @@ namespace Data_Structures_Library
             return current;
         }
 
-        /*
-        public object Insert()
+        /// <summary>
+        /// Method that inserts a new element with the specified key and value.
+        /// </summary>
+        /// <param name="key">Key that the new element will hold.</param>
+        /// <param name="value">Value that the element will hold.</param>
+        /// <exception cref="System.ArgumentException">Thrown if the specified key is already taken by some element.</exception>
+        public void Insert(string key, object value)
         {
+            // Search for the closest key
+            Node entry = Get(key);
+            // Check if the specified key is taken
+            if(Equals(entry.key, key))
+            {
+                // Throw an exception if it is
+                throw new ArgumentException("Error! Specified key is already taken!", key);
+            }
 
+            // Initialize a new element
+            Node newElem = new Node(key, value);
+            // Set the pointers of the new element
+            newElem.prev = entry;
+            newElem.next = entry.next;
+            // Set the pointers of the previous element to the new one
+            entry.next.prev = newElem;
+            entry.next = newElem;
+
+            // Temporary integer used for storing the number of levels the element goes
+            int currentLvl = 0;
+
+            // Iterate while the random even numbers are generated (probability is 50%)
+            while(random.Next() % 2 == 0)
+            {
+                // Check if the current level is greater than the number of levels in the list
+                // If it is, add a new layer
+                if(currentLvl >= lvl)
+                {
+                    AddLayer();
+                }
+
+                // Go to the previous element, until the one with the connection to the level obove is found
+                while(entry.above == null)
+                {
+                    entry = entry.prev;
+                }
+
+                // Go to the level above
+                entry = entry.above;
+
+                // Initialize a new element at the current level
+                Node currentLvlNode = new Node(key, value);
+
+                // Set the pointers of that element
+                currentLvlNode.prev = entry;
+                currentLvlNode.next = entry.next;
+                currentLvlNode.below = newElem;
+
+                // Set the pointers of the element previous to the new element at current level
+                entry.next.prev = currentLvlNode;
+                entry.next = currentLvlNode;
+
+                // Set the pointer to the above element of the new element at the level below to the new element at the current level
+                newElem.above = currentLvlNode;
+
+                // Make the new element the one at the current level
+                newElem = currentLvlNode;
+
+                // Increase the number of levels used for counting if the last level is reached, so it can be checked if a new layer (level) has to be added
+                currentLvl++;
+            }
+
+            // Increase the number of elements in the list
+            counter++;
         }
-        */
+
         /// <summary>
         /// Helper method used only if the need to balance out the SkipList has occured.
         /// </summary>
