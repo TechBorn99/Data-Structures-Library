@@ -329,11 +329,29 @@ namespace Data_Structures_Library
         }
 
         /// <summary>
-        /// 
+        /// Method used to print the whole list, arranged by elements and levels they appear
         /// </summary>
         public void PrintVertical()
         {
-
+            // Initialize a new element used for getting to the base list
+            Node current = head;
+            // Go to the base list
+            while(current.below != null)
+            {
+                current = current.below;
+            }
+            // Initialize the string that will store columns of the list
+            string column = "";
+            // Iterate through the base list and print all the elements, until the last element is reached
+            while(current != null)
+            {
+                // Get the "column" of the current element
+                column = GetOneColumn(current);
+                // Print out the current column
+                Console.WriteLine(column);
+                // Go to the next element
+                current = current.next;
+            }
         }
 
         /// <summary>
