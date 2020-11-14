@@ -327,19 +327,42 @@ namespace Data_Structures_Library
                 return lvl;
             }
         }
-        /*
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void PrintVertical()
         {
 
         }
 
-
+        /// <summary>
+        /// A helper method used for getting the columns (single element at all levels) of the Skip List.
+        /// </summary>
+        /// <param name="toBePrinted">Element (column) which will be printed.</param>
+        /// <returns>String with key and value of the specified element at all it's levels.</returns>
         private string GetOneColumn(Node toBePrinted)
         {
-
+            // Set the initial string
+            string s = "{";
+            // Initialize the counter the level can be printed
+            int tempLvl = 0;
+            // Iterate through the list (above) while there are no more elements above the current one
+            while (toBePrinted.above != null)
+            {
+                // Append the current key and value pair
+                s += "L" + tempLvl + ": \"" + toBePrinted.key + "\" : " + toBePrinted.value + ", ";
+                // Go to the element at the level above
+                toBePrinted = toBePrinted.above;
+                // Increase the iteration of levels
+                tempLvl++;
+            }
+            // Append the final element (positive infinity)
+            s += "L" + tempLvl + ": \"" + toBePrinted.key + "\" : " + toBePrinted.value + "}";
+            // Return the column
+            return s;
         }
-        */
+
         /// <summary>
         /// Method used for printing all keys and values of all the elements in the Skip list, arranged horizontally (by rows).
         /// </summary>
