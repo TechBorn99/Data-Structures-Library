@@ -42,7 +42,9 @@ namespace Data_Structures_Library
             //BuildHeap();
         }
 
-
+        /// <summary>
+        /// Helper method used for constructing the Heap Data Structure when the constructor is called.
+        /// </summary>
         private void BuildHeap()
         {
             for(int i = counter / 2; i >= 0; i++)
@@ -51,10 +53,40 @@ namespace Data_Structures_Library
             }
         }
         
-
+        /*
         private void Heapify(int parentIndex)
         {
+            // Initialize the index of the child element
+            int childIndex = -1;
+            // Initialize the indices of left and right child element with the two formulas
+            int leftChild = 2 * parentIndex + 1;
+            int rightChild = leftChild + 1;
 
+
+        }
+
+        */
+        /// <summary>
+        /// Getter for the number of elements in the heap.
+        /// </summary>
+        public int Length
+        {
+            get
+            {
+                return counter;
+            }
+        }
+
+        /// <summary>
+        /// Method that prints out the values of all the elements in the Heap in the console.
+        /// </summary>
+        public void Print()
+        {
+            // Iterate through the array of elements and print out each value
+            foreach(object element in elements)
+            {
+                Console.Write($"{element} ");
+            }
         }
     }
 }
