@@ -41,5 +41,20 @@ namespace Data_Structures_Library
 
             //BuildHeap();
         }
+
+
+        private void BuildHeap()
+        {
+            for(int i = counter / 2; i >= 0; i++)
+            {
+                Heapify(i);
+            }
+        }
+        
+
+        private void Heapify(int parentIndex)
+        {
+
+        }
     }
 }
