@@ -3,14 +3,15 @@
 namespace Data_Structures_Library
 {
     /// <summary>
-    /// Implementation of Binary (Min/Max) Heap Data Structure.
+    /// Generic implementation of Binary (Min/Max) Heap Data Structure.
     /// </summary>
-    class Heap
+    /// <typeparam name="T">Type of the elements stored in the Heap.</typeparam>
+    class Heap<T>
     {
         // Number of elements in the Heap
         private int counter;
         // Elements of the Heap
-        private object[] elements;
+        private T[] elements;
         // Boolean used for checking if the current Heap is Min or Max Heap
         private bool isMinHeap;
         // Variable used for setting the capacity of the Heap, if it is not provided
@@ -22,7 +23,7 @@ namespace Data_Structures_Library
         /// <param name="isMin">Boolean determining whether Heap is Min or Max Heap.</param>
         public Heap(bool isMin = true)
         {
-            elements = new object[CAPACITY];
+            elements = new T[CAPACITY];
             isMinHeap = isMin;
             counter = 0;
         }
@@ -32,9 +33,9 @@ namespace Data_Structures_Library
         /// </summary>
         /// <param name="array">Array of object values, used to prefill the Heap.</param>
         /// <param name="isMin">Boolean determining whether Heap is Min or Max Heap.</param>
-        public Heap(object[] array, bool isMin = true)
+        public Heap(T[] array, bool isMin = true)
         {
-            elements = new object[array.Length];
+            elements = new T[array.Length];
             Array.Copy(array, elements, array.Length);
             isMinHeap = isMin;
             counter = array.Length;
@@ -80,7 +81,7 @@ namespace Data_Structures_Library
             if(childIndex != -1 && Compare(elements, parentIndex, childIndex))
             {
                 // Swap the values
-                object temp = elements[parentIndex];
+                T temp = elements[parentIndex];
                 elements[parentIndex] = elements[childIndex];
                 elements[childIndex] = temp;
                 // Use recursion to Heapify the elements below
@@ -88,6 +89,19 @@ namespace Data_Structures_Library
             }
         }
 
+        /*
+        private bool Compare(T[] arr, int firstIndex, int secondIndex)
+        {
+            if(isMinHeap)
+            {
+                return (arr[firstIndex] - arr[secondIndex])  > 0;
+            }
+            else
+            {
+
+            }
+        }
+        */
         /// <summary>
         /// Getter for the number of elements in the heap.
         /// </summary>
