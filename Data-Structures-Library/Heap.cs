@@ -53,7 +53,10 @@ namespace Data_Structures_Library
             }
         }
         
-        /*
+        /// <summary>
+        /// Helper method that forms and keeps the structure of the Heap.
+        /// </summary>
+        /// <param name="parentIndex"></param>
         private void Heapify(int parentIndex)
         {
             // Initialize the index of the child element
@@ -62,10 +65,29 @@ namespace Data_Structures_Library
             int leftChild = 2 * parentIndex + 1;
             int rightChild = leftChild + 1;
 
+            // Check where the element should be
+            if (leftChild < counter)
+            {
+                childIndex = leftChild;
+            }
 
+            if (rightChild < counter && Compare(elements, leftChild, rightChild))
+            {
+                childIndex = rightChild;
+            }
+
+            // Swap the values and use recursion to put the next element in the right place in Heap
+            if(childIndex != -1 && Compare(elements, parentIndex, childIndex))
+            {
+                // Swap the values
+                object temp = elements[parentIndex];
+                elements[parentIndex] = elements[childIndex];
+                elements[childIndex] = temp;
+                // Use recursion to Heapify the elements below
+                Heapify(childIndex);
+            }
         }
 
-        */
         /// <summary>
         /// Getter for the number of elements in the heap.
         /// </summary>
