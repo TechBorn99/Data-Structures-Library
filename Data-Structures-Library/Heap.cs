@@ -130,5 +130,22 @@ namespace Data_Structures_Library
                 Console.Write($"{element} ");
             }
         }
+
+        /*
+        public T Pop()
+        {
+
+        }
+
+        public void Append(T value)
+        {
+
+        }
+
+        private void DoubleSize()
+        {
+
+        }
+        */
     }
 }
