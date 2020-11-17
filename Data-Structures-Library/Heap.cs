@@ -104,6 +104,22 @@ namespace Data_Structures_Library
         }
 
         /// <summary>
+        /// Method that returns the first element of the Heap ("root").
+        /// </summary>
+        /// <returns>Element of the heap at index 0, if it exists, and the default value of type T, if the Heap is empty.</returns>
+        public T Peek()
+        {
+            // Check if the Heap is empty
+            if(counter == 0)
+            {
+                // If it is, return the default value for type T
+                return default(T);
+            }
+            // Else, return the element at index 0
+            return elements[0];
+        }
+
+        /// <summary>
         /// Method that prints out the values of all the elements in the Heap in the console.
         /// </summary>
         public void Print()
