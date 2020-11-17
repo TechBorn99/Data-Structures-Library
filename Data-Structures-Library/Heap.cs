@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Data_Structures_Library
 {
@@ -16,6 +17,8 @@ namespace Data_Structures_Library
         private bool isMinHeap;
         // Variable used for setting the capacity of the Heap, if it is not provided
         private const int CAPACITY = 32;
+        // Comparer object used to compare two objects of type T in the array
+        Comparer<T> comparer = Comparer<T>.Default;
 
         /// <summary>
         /// Constructor for the Heap, using only one argument.
@@ -72,13 +75,13 @@ namespace Data_Structures_Library
                 childIndex = leftChild;
             }
 
-            if (rightChild < counter && Compare(elements, leftChild, rightChild))
+            if (rightChild < counter && (comparer.Compare(elements[leftChild], elements[rightChild]) < 0))
             {
                 childIndex = rightChild;
             }
 
             // Swap the values and use recursion to put the next element in the right place in Heap
-            if(childIndex != -1 && Compare(elements, parentIndex, childIndex))
+            if(childIndex != -1 && (comparer.Compare(elements[parentIndex], elements[childIndex]) < 0))
             {
                 // Swap the values
                 T temp = elements[parentIndex];
@@ -89,19 +92,6 @@ namespace Data_Structures_Library
             }
         }
 
-        /*
-        private bool Compare(T[] arr, int firstIndex, int secondIndex)
-        {
-            if(isMinHeap)
-            {
-                return (arr[firstIndex] - arr[secondIndex])  > 0;
-            }
-            else
-            {
-
-            }
-        }
-        */
         /// <summary>
         /// Getter for the number of elements in the heap.
         /// </summary>
