@@ -146,8 +146,14 @@ namespace Data_Structures_Library
             // Check if the Heap is full, and if it is, double it's size
             if(counter == elements.Length)
             {
-                
+                DoubleSize();
             }
+
+            // Add the new element and increase the number of elements in the Heap
+            elements[counter++] = value;
+
+            // Rebuild the Heap
+            BuildHeap();
         }
 
         /// <summary>
