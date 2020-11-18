@@ -136,16 +136,31 @@ namespace Data_Structures_Library
         {
 
         }
-
+        */
+        /// <summary>
+        /// Method that adds the element at the end of the Heap.
+        /// </summary>
+        /// <param name="value">Value of the element that will be added.</param>
         public void Append(T value)
         {
-
+            // Check if the Heap is full, and if it is, double it's size
+            if(counter == elements.Length)
+            {
+                
+            }
         }
 
+        /// <summary>
+        /// Helper method that doubles the Heap size.
+        /// </summary>
         private void DoubleSize()
         {
-
+            // Copy the old array
+            T[] old = elements;
+            // Initialize the new array with double the size
+            elements = new T[elements.Length * 2];
+            // Copy the values from old array into the new one
+            Array.Copy(old, 0, elements, 0, counter);
         }
-        */
     }
 }
