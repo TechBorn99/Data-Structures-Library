@@ -131,12 +131,27 @@ namespace Data_Structures_Library
             }
         }
 
-        /*
+        /// <summary>
+        /// Method that removes the element at the top of the Heap.
+        /// </summary>
+        /// <returns>Value of the deleted element.</returns>
+        /// <exception cref="System.InvalidOperationException">Thrown when an attempt to delete from an empty Heap is made.</exception>
         public T Pop()
         {
-
+            // Check if the Heap is empty, if it is, throw an exception
+            if(counter == 0)
+            {
+                throw new InvalidOperationException("Error! Can't delete from an empty Heap.");
+            }
+            // Save the value of the element that will be deleted in a temporary variable
+            T temp = elements[0];
+            // Remove the element and decrease counter, by setting the first element at the index that will be out of the bounds of the array
+            elements[0] = elements[counter - 1];
+            counter--;
+            // Return saved value
+            return temp;
         }
-        */
+
         /// <summary>
         /// Method that adds the element at the end of the Heap.
         /// </summary>
