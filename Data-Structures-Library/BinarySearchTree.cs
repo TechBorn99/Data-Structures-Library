@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Data_Structures_Library
 {
@@ -93,6 +91,15 @@ namespace Data_Structures_Library
             current.rChild = CreateBinaryTree(arr, mid + 1, end);
             // Return the current element (root of the subtree)
             return current;
+        }
+
+        /// <summary>
+        /// Method that returns the value of the root element of the BST.
+        /// </summary>
+        /// <returns>Value of the root in BST.</returns>
+        public T FindRoot()
+        {
+            return root.value;
         }
     }
 }
