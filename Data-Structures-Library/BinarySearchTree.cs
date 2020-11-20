@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Data_Structures_Library
 {
@@ -47,6 +48,8 @@ namespace Data_Structures_Library
 
         // Pointer to the root element of the BST
         private Node root;
+        // Comparer object used to compare two objects of type T in the BST
+        Comparer<T> comparer = Comparer<T>.Default;
 
         /// <summary>
         /// BST constructor, initializes the Binary Search Tree.
@@ -100,6 +103,38 @@ namespace Data_Structures_Library
         public T FindRoot()
         {
             return root.value;
+        }
+
+        /// <summary>
+        /// Method for checking whether the element with the specified value is present within the BST.
+        /// </summary>
+        /// <param name="value">Value of the element that is to be checked for.</param>
+        /// <returns>True if the element with the specified value is present within the BST, false if it doesn't.</returns>
+        public bool IsTreeNodePresent(T value)
+        {
+            // Element that will be used for checking whether the element is present and iterating the BST
+            Node current = root;
+            // Iterate through the tree, until the leaf nodes are reached
+            while(current != null)
+            {
+                // If the values of the current and the specified element is found, return true
+                if(comparer.Compare(current.value, value) == 0)
+                {
+                    return true;
+                }
+                // If the value of the current element is greater than the specified value, go to the left child node
+                if (comparer.Compare(current.value, value) > 0)
+                {
+                    current = current.lChild;
+                }
+                // If the value of the current element is less than the specified value, go to the right child node
+                else
+                {
+                    current = current.rChild;
+                }
+            }
+            // Return false if the element is not found
+            return false;
         }
     }
 }
