@@ -67,6 +67,32 @@ namespace Data_Structures_Library
             root = CreateBinaryTree(arr, 0, arr.Length - 1);
         }
 
-
+        /// <summary>
+        /// Helper method that creates the Binary Search Tree.
+        /// </summary>
+        /// <param name="arr">Array of the elements that are added to the BST.</param>
+        /// <param name="start">Start index of the specified array of elements.</param>
+        /// <param name="end">End index of the specified array of elements.</param>
+        /// <returns>Root of the BST created out of the specified array of elements.</returns>
+        private Node CreateBinaryTree(T[] arr, int start, int end)
+        {
+            // Create the current Node
+            Node current = null;
+            // Check whether all elements are added
+            if(start > end)
+            {
+                return null;
+            }
+            // Get the middle of the specified array
+            int mid = (start + end) / 2;
+            // Set the value of the current Node
+            current = new Node(arr[mid]);
+            // Create the left subtree
+            current.lChild = CreateBinaryTree(arr, start, mid - 1);
+            // Create the right subtree
+            current.rChild = CreateBinaryTree(arr, mid + 1, end);
+            // Return the current element (root of the subtree)
+            return current;
+        }
     }
 }
