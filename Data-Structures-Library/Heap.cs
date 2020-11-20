@@ -7,7 +7,7 @@ namespace Data_Structures_Library
     /// Generic implementation of Binary (Min/Max) Heap Data Structure.
     /// </summary>
     /// <typeparam name="T">Type of the elements stored in the Heap.</typeparam>
-    class Heap<T>
+    public class Heap<T>
     {
         // Number of elements in the Heap
         private int counter;

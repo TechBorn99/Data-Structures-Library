@@ -5,7 +5,7 @@ namespace Data_Structures_Library
     /// <summary>
     /// Class that represents the Circular Linked List Data Structure, implemented through the Singly Linked List
     /// </summary>
-    class CircularLinkedList
+    public class CircularLinkedList
     {
         /// <summary>
         /// Private class that represents the Node element of a Circular Linked List, implemented through the Singly Linked List
