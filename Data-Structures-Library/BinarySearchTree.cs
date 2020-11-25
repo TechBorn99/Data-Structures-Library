@@ -72,7 +72,18 @@ namespace Data_Structures_Library
             /// </summary>
             internal void PreOrderTraversal()
             {
-
+                // Print out the value of the current node first
+                Console.Write(value + " ");
+                // Then go through the whole left subtree, printing out all the values
+                if (lChild != null)
+                {
+                    lChild.PreOrderTraversal();
+                }
+                // And finally, go through the whole right subtree, printing out all the values
+                if (rChild != null)
+                {
+                    rChild.PreOrderTraversal();
+                }
             }
 
             /// <summary>
