@@ -170,11 +170,21 @@ namespace Data_Structures_Library
         }
 
         /// <summary>
-        /// 
+        /// Method for printing out the values of the whole left subtree first, then the right subtree, and the root node at the end. 
         /// </summary>
+        /// <exception cref="System.InvalidOperationException">Thrown if an attempt to print an empty tree is made.</exception>
+
         public void PrintPostOrder()
         {
-
+            // Check if the tree is empty (root is null)
+            if (root != null)
+            {
+                root.PostOrderTraversal();
+            }
+            else
+            {
+                throw new InvalidOperationException("Error! Cannot print values of an empty tree!");
+            }
         }
 
         /// <summary>
