@@ -50,7 +50,21 @@ namespace Data_Structures_Library
             /// </summary>
             internal void InOrderTraversal()
             {
+                // Check if there are more left nodes present in the tree
+                if(lChild != null)
+                {
+                    // Using recursion go through the whole left subtree
+                    lChild.InOrderTraversal();
+                }
 
+                // Then print out the value of the current  node
+                Console.Write(value + " ");
+
+                // Then go through the whole right subtree
+                if(rChild != null)
+                {
+                    rChild.InOrderTraversal();
+                }
             }
 
             /// <summary>
