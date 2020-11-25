@@ -44,6 +44,30 @@ namespace Data_Structures_Library
                 lChild = lc;
                 rChild = rc;
             }
+
+            /// <summary>
+            /// Method for printing the values of the elements in the BST in increasing order.
+            /// </summary>
+            internal void InOrderTraversal()
+            {
+
+            }
+
+            /// <summary>
+            /// Method for printing out the value of the root node first, then the whole left subtree, and the right subtree at the end.
+            /// </summary>
+            internal void PreOrderTraversal()
+            {
+
+            }
+
+            /// <summary>
+            /// Method for printing out the values of the whole left subtree first, then the right subtree, and the root node at the end. 
+            /// </summary>
+            internal void PostOrderTraversal()
+            {
+
+            }
         }
 
         // Pointer to the root element of the BST
@@ -110,7 +134,7 @@ namespace Data_Structures_Library
         /// </summary>
         /// <param name="value">Value of the element that is to be checked for.</param>
         /// <returns>True if the element with the specified value is present within the BST, false if it doesn't.</returns>
-        public bool IsTreeNodePresent(T value)
+        public bool Contains(T value)
         {
             // Element that will be used for checking whether the element is present and iterating the BST
             Node current = root;
@@ -135,6 +159,39 @@ namespace Data_Structures_Library
             }
             // Return false if the element is not found
             return false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void PrintPreOrder()
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void PrintPostOrder()
+        {
+
+        }
+
+        /// <summary>
+        /// Method for printing the values of the elements in the BST in increasing order.
+        /// </summary>
+        /// <exception cref="System.InvalidOperationException">Thrown if an attempt to print an empty tree is made.</exception>
+        public void PrintInOrder()
+        {
+            // Check if the tree is empty (root is null)
+            if(root != null)
+            {
+                root.InOrderTraversal();
+            }
+            else
+            {
+                throw new InvalidOperationException("Error! Cannot print values of an empty tree!");
+            }
         }
     }
 }
