@@ -162,11 +162,19 @@ namespace Data_Structures_Library
         }
 
         /// <summary>
-        /// 
+        /// Method for printing out the value of the root node first, then the whole left subtree, and the right subtree at the end.
         /// </summary>
         public void PrintPreOrder()
         {
-
+            // Check if the tree is empty (root is null)
+            if (root != null)
+            {
+                root.PreOrderTraversal();
+            }
+            else
+            {
+                throw new InvalidOperationException("Error! Cannot print values of an empty tree!");
+            }
         }
 
         /// <summary>
