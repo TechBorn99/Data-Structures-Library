@@ -91,7 +91,18 @@ namespace Data_Structures_Library
             /// </summary>
             internal void PostOrderTraversal()
             {
-
+                // Go through the whole left subtree and print values of all the nodes first
+                if (lChild != null)
+                {
+                    lChild.InOrderTraversal();
+                }
+                // Then, go through the whole right subtree and print values of all the nodes there
+                if (rChild != null)
+                {
+                    rChild.InOrderTraversal();
+                }
+                // And finally, print the value of the current Node
+                Console.Write(value + " ");
             }
         }
 
