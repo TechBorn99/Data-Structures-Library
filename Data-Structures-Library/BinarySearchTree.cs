@@ -334,12 +334,21 @@ namespace Data_Structures_Library
 
 
         /// <summary>
-        /// 
+        /// Method that finds the element with the highest value in the BST.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The highest value in the BST.</returns>
         public T FindMax()
         {
-
+            // Find the element with the highest value in the BST
+            Node max = FindMaxNode();
+            // Check if that element exists
+            if (max == null)
+            {
+                // If it is, return the null value (or the default for the specified data type)
+                return default(T);
+            }
+            // If it is not, return the value of the found element
+            return max.value;
         }
 
         /// <summary>
