@@ -288,5 +288,39 @@ namespace Data_Structures_Library
             // Return the newly added node element
             return newNode;
         }
+
+        /// <summary>
+        /// Method that returns the minimum value in the BST.
+        /// </summary>
+        /// <returns>Minimum value in the BST.</returns>
+        public T FindMin()
+        {
+
+        }
+
+        /// <summary>
+        /// Method that returns the node with the minimum value in the BST.
+        /// </summary>
+        /// <returns>Node with the minimum value in the BST</returns>
+        private Node FindMinNode()
+        {
+            // Check whether the BST is empty
+            if(root == null)
+            {
+                return null;
+            }
+
+            // Initialize a temporary node, used for storing the node element with the minimum value
+            Node min = root;
+
+            // Go left, until the leaf node (because of the property of the BST, that is the element with the lowest value)
+            while(min.lChild != null)
+            {
+                min = min.lChild;
+            }
+
+            // Return the minimum value
+            return min;
+        }
     }
 }
