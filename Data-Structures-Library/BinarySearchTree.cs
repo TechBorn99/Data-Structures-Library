@@ -247,5 +247,46 @@ namespace Data_Structures_Library
                 throw new InvalidOperationException("Error! Cannot print values of an empty tree!");
             }
         }
+
+        /// <summary>
+        /// Method that adds an element with the specified value to the BST.
+        /// </summary>
+        /// <param name="value">Value of the new element.</param>
+        public void Insert(T value)
+        {
+            root = InsertNode(root, value);
+        }
+
+        /// <summary>
+        /// Helper method that adds the element with the specified value to the BST in the right place.
+        /// </summary>
+        /// <param name="newNode">Node at which place a new value should be stored.</param>
+        /// <param name="value">Value of the new element.</param>
+        /// <returns>Newly added node.</returns>
+        private Node InsertNode(Node newNode, T value)
+        {
+            // Check if the current Node is taken
+            if(newNode == null)
+            {
+                // If it is not, add the new value
+                newNode = new Node(value);
+            }
+            else
+            {
+                // Check whether some elements need to be added to the left subtree
+                if (comparer.Compare(newNode.value, value) > 0)
+                {
+                    newNode.lChild = InsertNode(newNode.lChild, value);
+                }
+                // Or the right subtree
+                else
+                {
+                    newNode.rChild = InsertNode(newNode.rChild, value);
+                }
+            }
+
+            // Return the newly added node element
+            return newNode;
+        }
     }
 }
