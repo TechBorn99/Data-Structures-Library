@@ -331,5 +331,37 @@ namespace Data_Structures_Library
             // Return the minimum value
             return min;
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public T FindMax()
+        {
+
+        }
+
+        /// <summary>
+        /// Helper method that finds the Node element with the maximum value in the BST. 
+        /// </summary>
+        /// <returns>Node that contains the maximum value in the BST.</returns>
+        private Node FindMaxNode()
+        {
+            // Check if the BST is empty
+            if(root == null)
+            {
+                return null;
+            }
+            // Initialize a temporary node, used for storing the node element with the maximum value
+            Node max = root;
+            // Go right, until the leaf node (because of the property of the BST, that is the element with the highest value)
+            while(max.rChild != null)
+            {
+                max = max.rChild;
+            }
+            // Return the found element
+            return max;
+        }
     }
 }
