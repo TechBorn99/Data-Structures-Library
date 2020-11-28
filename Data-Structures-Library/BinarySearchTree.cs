@@ -295,7 +295,16 @@ namespace Data_Structures_Library
         /// <returns>Minimum value in the BST.</returns>
         public T FindMin()
         {
-
+            // Find the element with the lowest value in the BST
+            Node min = FindMinNode();
+            // Check if that element exists
+            if(min == null)
+            {
+                // If it is, return the null value (or the default for the specified data type)
+                return default(T);
+            }
+            // If it is not, return the value of the found element
+            return min.value;
         }
 
         /// <summary>
