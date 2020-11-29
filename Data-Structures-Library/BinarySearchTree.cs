@@ -372,5 +372,40 @@ namespace Data_Structures_Library
             // Return the found element
             return max;
         }
+
+        /// <summary>
+        /// Helper method for finding the successor to the specified element.
+        /// </summary>
+        /// <param name="pred">Node to which the successor should be found.</param>
+        /// <returns>Successor element to the specified element.</returns>
+        private Node GetSuccessor(Node pred)
+        {
+            // Initialize the current element
+            Node current = pred.rChild;
+            // Initialize the parent element of the successor
+            Node parentOfSuccessor = pred;
+            // Initialize the successor
+            Node successor = pred;
+            // Iterate to the right until the end of the BST is reached
+            while(current != null)
+            {
+                // Move pointers to the parentOfSuccessor and successor elements
+                parentOfSuccessor = successor;
+                successor = current;
+                // Go to the next right child element
+                current = current.rChild;
+            }
+            // Check if successor is actually the right child of the specified element
+            if(successor != pred.rChild)
+            {
+                // Move the pointers
+                parentOfSuccessor.lChild = successor.rChild;
+                successor.rChild = pred.rChild;
+            }
+            // Move the pointer
+            successor.lChild = pred.rChild;
+            // Return the successor element
+            return successor;
+        }
     }
 }
