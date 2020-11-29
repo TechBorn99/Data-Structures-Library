@@ -407,5 +407,133 @@ namespace Data_Structures_Library
             // Return the successor element
             return successor;
         }
+
+        /// <summary>
+        /// Method that deletes the element with the specified value from the BST.
+        /// </summary>
+        /// <param name="valueToRemove">Value of the element that needs to be removed.</param>
+        ///<exception cref="System.InvalidOperationException">Thrown when an attempt to delete from an empty BST is made.</exception>
+        public void Delete(T valueToRemove)
+        {
+            // Initialize the helper variables
+            Node parent = root;
+            Node current = root;
+            bool isLeftChild = false;
+            // Check if the BST is empty
+            if (current == null)
+            {
+                throw new InvalidOperationException("Error! Cannot delete from an empty BST.");
+            }
+            // Iterate through the BST until the end is reached or the element with the specified value is found
+            while (current != null && comparer.Compare(current.value, valueToRemove) != 0)
+            {
+                parent = current;
+                // Check whether the element with the specified value is eather left or right child
+                if (comparer.Compare(current.value, valueToRemove) > 0)
+                {
+                    current = current.lChild;
+                    isLeftChild = true;
+                }
+                else
+                {
+                    current = current.rChild;
+                    isLeftChild = false;
+                }
+            }
+            // Check if the current element is null
+            if (current == null)
+            {
+                return;
+            }
+            // Case if the element that needs to be deleted is a leaf node
+            if (current.rChild == null && current.lChild == null)
+            {
+                // If there is only the root element in the BST
+                if (current == root)
+                {
+                    root = null;
+                }
+                // Otherwise
+                else
+                {
+                    // Check whether the element that needs to be deleted is a right or left (leaf) child element and delete the pointer to it
+                    if (isLeftChild)
+                    {
+                        parent.lChild = null;
+                    }
+                    else
+                    {
+                        parent.rChild = null;
+                    }
+                }
+            }
+            // Case if the element that needs to be deleted has only the left child
+            else if (current.rChild == null)
+            {
+                // Check whether the current node, that has to be deleted is a root node
+                if (current == root)
+                {
+                    // If it is, just move the pointer from the current to the left child node (since the right is null)
+                    root = current.lChild;
+                }
+                // Otherwise
+                else
+                {
+                    // Check if the current node is the left or right child element and move the pointers depending on it
+                    if (isLeftChild)
+                    {
+                        parent.lChild = current.lChild;
+                    }
+                    else
+                    {
+                        parent.rChild = current.lChild;
+                    }
+                }
+            }
+            // Case if the element that needs to be deleted has only the right child
+            else if (current.lChild == null)
+            {
+                // Check whether the current node, that has to be deleted is a root node
+                if (current == root)
+                {
+                    // If it is, just move the pointer from the current to the right child node (since the left is null)
+                    root = current.rChild;
+                }
+                // Otherwise
+                else
+                {
+                    // Check if the current node is the left or right child element and move the pointers depending on it
+                    if (isLeftChild)
+                    {
+                        parent.lChild = current.rChild;
+                    }
+                    else
+                    {
+                        parent.rChild = current.rChild;
+                    }
+                }
+            }
+            // Case if the element with the specified value has both left and right child
+            else
+            {
+                // Find the successor to the current element
+                Node successor = GetSuccessor(current);
+                // Check whether the current element is the root element
+                if (current == root)
+                {
+                    // If it is, declare it to be the successor
+                    root = successor;
+                }
+                // Otherwise, check whether it is the left child or the right child that needs to be replaced with the successor
+                else if (isLeftChild)
+                {
+                    parent.lChild = successor;
+                }
+                else
+                {
+                    parent.rChild = successor;
+                }
+            }
+        }
     }
 }
